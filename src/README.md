@@ -1,7 +1,7 @@
 ![diagramm](ERD.png)
 
 
-Пациенты {
+> Пациенты {```
 id integer pk increments
 firstname text
 lastname text
@@ -10,22 +10,22 @@ date_of_birth date
 adress text
 phonenumber text
 district integer > Участки.id
-polyclinic integer > Поликлиники.id
+polyclinic integer > Поликлиники.id```
 }
 
-диагнозы {
+> диагнозы {```
+    id integer pk increments
+    name text
+    treatment_example text```
+}
+
+> Анализы {```
 id integer pk increments
 name text
-treatment_example text
+price integer```
 }
 
-Анализы {
-id integer pk increments
-name text
-price integer
-}
-
-Врачи {
+> Врачи {```
 id integer pk increments
 firstname text
 lastname text
@@ -34,44 +34,44 @@ speciality text > Специальности.id
 cabinet_number integer
 shedule text
 polyclinic integer > Поликлиники.id
-distict integer
+distict integer```
 }
 
-Специальности {
+> Специальности {```
 id integer pk increments > Doctor.id
-type text
+type text```
 }
 
-Поликлиники {
+> Поликлиники {```
 id integer pk increments
 name text
 adress text
-city_code integer
+city_code integer```
 }
 
-Города {
+> Города {```
 id integer pk increments > Поликлиники.id
-name text
+name text```
 }
 
-Участки {
+> Участки {```
 id integer pk increments *>* Врачи.distict
-district_name text
+district_name text```
 }
 
-Приемы {
+> Приемы {```
 id integer pk increments
 desease text > диагнозы.id
 treatment text
 doctorID integer > Врачи.id
-patientID integer > Пациенты.id
+patientID integer > Пациенты.id```
 }
 
-Направлениенаанализы {
+> Направлениенаанализы {```
 id integer pk increments
 visitID integer > Приемы.id
 doctorID integer > Врачи.id
 patientID integer > Пациенты.id
 analizeID integer > Анализы.id
-note text
+note text```
 }
